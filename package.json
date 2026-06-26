@@ -1,0 +1,32 @@
+{
+  "name": "909itacademy",
+  "version": "1.0.0",
+  "description": "A premium, high-performance WordPress theme designed for 909IT Academy - Australia's leading IT training provider.",
+  "main": "index.js",
+  "scripts": {
+    "css": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch",
+    "serve": "live-server .",
+    "dev": "npm-run-all --parallel css serve",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "overrides": {
+    "braces": "^3.0.3",
+    "micromatch": "^4.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.0",
+    "autoprefixer": "^10.4.24",
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.0"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}

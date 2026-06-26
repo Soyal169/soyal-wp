@@ -1,0 +1,234 @@
+@import url('../assets/fonts/inter.css');
+@import url('../assets/fonts/jakarta.css');
+@import url('../assets/fonts/geist.css');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-brand-primary: #e31e24;
+  --color-brand-accent: #1ee3dd;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-light: #fdfdfd;
+
+  --font-geist: "Geist", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+@keyframes beam-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dots-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 24px 24px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-beam {
+  animation: beam-spin 3s linear infinite;
+}
+
+.animate-dots {
+  animation: dots-move 8s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.testimonial-content.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.bg-pattern-noise {
+  background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+}
+
+.bg-pattern-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.logo-brand {
+  background-image: url('../images/logo.png');
+}
+
+.custom-cf7-input {
+  @apply w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all font-geist;
+}
+
+select.custom-cf7-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 1.25rem;
+  padding-right: 3.5rem;
+}
+
+.custom-cf7-button {
+  @apply w-full px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-primary/30 active:scale-95 flex items-center justify-center gap-3 cursor-pointer appearance-none border-none;
+}
+
+/* Add icon to the button via CSS if possible, or just keep it simple */
+.wpcf7-submit.custom-cf7-button {
+  position: relative;
+}
+
+.hero-main-img {
+  background-image: url('../images/hero/hero-image.webp');
+}
+
+html,
+body {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+/* Blog Content Styles */
+.blog-content-area {
+    @apply prose prose-slate max-w-none;
+    counter-reset: blog-h2;
+}
+
+.blog-content-area h2 {
+    @apply font-jakarta font-bold tracking-tight text-slate-900 text-3xl mt-16 mb-8 flex items-center gap-4;
+    counter-increment: blog-h2;
+}
+
+.blog-content-area h2::before {
+    content: counter(blog-h2);
+    @apply flex items-center justify-center w-12 h-12 rounded-2xl bg-brand-primary text-white text-lg font-bold shadow-lg shadow-brand-primary/20 shrink-0;
+}
+
+.blog-content-area p {
+    @apply text-slate-600 leading-[1.8] font-geist text-lg mb-8;
+}
+
+.blog-content-area p:first-of-type::first-letter {
+    @apply text-6xl font-bold text-brand-primary mr-3 float-left leading-[1];
+}
+
+.blog-content-area a {
+    @apply text-brand-primary no-underline font-bold hover:underline;
+}
+
+.blog-content-area blockquote {
+    @apply border-l-4 border-brand-primary bg-slate-50 px-8 py-6 rounded-r-3xl not-italic font-medium text-slate-800 my-12;
+}
+
+.blog-content-area blockquote p {
+    @apply text-xl mb-0 italic;
+}
+
+.blog-content-area strong {
+    @apply text-slate-900 font-bold;
+}
+
+.blog-content-area img {
+    @apply rounded-[2.5rem] shadow-2xl my-12 mx-auto;
+}
+
+.blog-content-area ul {
+    @apply list-none pl-0 space-y-4 my-8;
+}
+
+.blog-content-area ul li {
+    @apply flex items-start gap-3 text-slate-600 font-geist;
+}
+
+.blog-content-area ul li::before {
+    content: "";
+    @apply w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 shrink-0;
+}
+
+.blog-content-area ol {
+    @apply list-decimal pl-6 space-y-4 my-8 text-slate-600 font-geist;
+}
+
+.blog-content-area h3 {
+    @apply font-jakarta font-bold text-2xl text-slate-900 mt-12 mb-6;
+}
+
+.blog-content-area h4 {
+    @apply font-jakarta font-bold text-xl text-slate-900 mt-8 mb-4;
+}
