@@ -1,8 +1,0 @@
-/* Local Plus Jakarta Sans Font */
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 300 800;
-  font-display: swap;
-  src: url('./jakarta.ttf') format('truetype');
-}

@@ -1,8 +1,0 @@
-/* Local Geist Font */
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url('./geist.ttf') format('truetype');
-}

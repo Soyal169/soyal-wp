@@ -1,8 +1,0 @@
-/* Local Inter Font */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('./inter.ttf') format('truetype');
-}
